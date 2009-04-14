@@ -2,7 +2,7 @@
 /*
 Plugin Name: RevCanonical
 Plugin URI: http://whomwah.github.com/revcanonical/ 
-Description: Creates and adds support for shortened urls as per <a href="http://revcanonical.appspot.com/">RevCanonical</a> 
+Description: Creates and adds support for shortened urls and the rev=canonical link tag
 Version: 1.0
 Author: Duncan Robertson 
 Author URI: http://whomwah.com
@@ -12,27 +12,29 @@ Author URI: http://whomwah.com
 function revcanonical()  {
   global $post;
   if (is_single() || is_page()) {
-    $url = get_option('revcanonical-url'); 
-    if ($url == '')
-      $url = get_bloginfo('url');
-    echo "\n".'<link rev="canonical" rel="self alternate shorter" href="'.$url.'/p'.shorten($post->ID).'" />'; 
+    echo "\n".'<link rev="canonical" rel="self alternate shorter" href="'.revcanonical_shorten($post->ID).'" />'; 
   }
 }
 
 function revcanonical_do_redirect() {
   $rq = spliti('/', trim($_SERVER['REQUEST_URI'],'/'));
   $id = substr($rq[0], 1, strlen($rq[0]));
-  if (count($rq) == 1 && $id != '' && $pl = get_permalink(unshorten($id))) {
+  if (count($rq) == 1 && $id != '' && $pl = revcanonical_unshorten($id)) {
 	  header('Location: '.$pl, true, 301);
   }
 }
 
-function shorten($no){
-  return base_convert($no, 10, 36);
+function revcanonical_shorten($no){
+  $url = get_option('revcanonical-url');
+  if ($url == '')
+    $url = get_bloginfo('url');
+  $id = base_convert($no, 10, 36);
+  return $url.'/p'.base_convert($no, 10, 36);
 }
 
-function unshorten($no){
-  return base_convert($no, 36, 10);
+function revcanonical_unshorten($no){
+  $id = base_convert($no, 36, 10);
+  return get_permalink($id); 
 }
 
 function revcanonical_management() {
