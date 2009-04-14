@@ -12,7 +12,7 @@ Author URI: http://whomwah.com
 function revcanonical()  {
   global $post;
   if (is_single() || is_page()) {
-    echo "\n".'<link rev="canonical" rel="self alternate shorter" href="'.revcanonical_shorten($post->ID).'" />'; 
+    echo "\n".'<link rev="canonical" type="text/html" href="'.revcanonical_shorten($post->ID).'" />'; 
   }
 }
 
