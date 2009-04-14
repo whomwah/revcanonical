@@ -12,9 +12,11 @@ A Wordpress plugin that creates localized shortened urls and adds support for th
 
 RevCanonical creates and adds support for shortened urls as per <a href="http://laughingmeme.org/2009/04/03/url-shortening-hinting/">this rev=canonical blog post</a>. It not only creates short urls for all your posts and pages, but once you install the plugin, you will get a tag added to the source of your page that will contain that shortened version of the url for the page it sits in.
 
-`<link rev="canonical" rel="self alternate shorter" href="http://domain.me/p12p" />` 
+`<link rev="canonical" type="text/html" href="http://domain.me/p12p" />` 
 
 That’s it! You can now, not only use this url in sites like [Twitter](http://twitter.com) without having to go via a url shortening service, but [services](http://revcanonical.appspot.com/) or people that understand the rev=canonical link tag, will be able to use this shortened version over the longer canonical version. It also means that it’s persistence is down to me, and not to a 3rd party. Oh and there's [a great bookmarklet](http://simonwillison.net/2009/Apr/11/revcanonical/) that makes hunting for existing short urls really simple.
+
+You can read more about this plugin at my website http://littl.me/p136
 
 == Frequently Asked Questions ==
 
