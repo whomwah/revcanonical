@@ -4,7 +4,7 @@ Donate Link: http://pledgie.org/campaigns/3803
 Tags: revcanonical, simple, post, url
 Requires at least: 2.6
 Tested up to: 2.7
-Stable tag: 1.0 
+Stable tag: 1.1 
 
 A Wordpress plugin that creates localized shortened urls and adds support for the rev=canonical link tag 
 

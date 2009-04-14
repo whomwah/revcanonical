@@ -3,7 +3,7 @@
 Plugin Name: RevCanonical
 Plugin URI: http://whomwah.github.com/revcanonical/ 
 Description: Creates and adds support for shortened urls and the rev=canonical link tag
-Version: 1.0
+Version: 1.1
 Author: Duncan Robertson 
 Author URI: http://whomwah.com
 */
@@ -53,7 +53,7 @@ function revcanonical_management() {
   <h2>RevCanonical Settings</h2>
   <p>RevCanonical adds a link tag to the head of your posts and pages like the one below and with a shortened url within for that specific page. You can now not only use this new link in sites like <a href="http://twitter.com">Twitter</a>, but sites that understand this tag, will use it too if they require a shorter version of your pages url. This means that hopefully one day you won't have to rely on url shortening services which are not great for the web due to potential <a href="http://en.wikipedia.org/wiki/Link_rot">LinkRot</a> and many other reasons.</p>
   <p>This is an example of what would appear in a post pages source:</p>
-  <p><code>&#060link rev="canonical" rel="self alternate shorter" href="<?php echo(get_option('revcanonical-url')) ?>/12p" /&#062;</code></p>
+  <p><code>&#060link rev="canonical" type="text/html" href="<?php echo(get_option('revcanonical-url')) ?>/12p" /&#062;</code></p>
   <p>Sites like <a href="http://flickr.com">Flickr</a>, <a href="http://dopplr.com/">Dopplr</a> and <a href="http://php.net/">php.net</a> are also starting to add this link tag to their pages. There is even <a href="http://simonwillison.net/2009/Apr/11/revcanonical/">a bookmarklet</a> that will returned the shortened url for a page if it's available. For more information visit <a href="http://revcanonical.appspot.com/">http://revcanonical.appspot.com/</a></p>
   <p>
   <h3>Shorten URL domain name Configuration</h3>
