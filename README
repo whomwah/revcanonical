@@ -1,0 +1,18 @@
+RevCanonical
+============
+
+A Wordpress plugin that creates and adds support for shortened urls as per <a href="http://revcanonical.appspot.com/">RevCanonical</a> 
+
+DOWNLOAD
+========
+
+http://wordpress.org/extend/plugins/revcanonical/
+
+INSTALLATION:
+
+Once you downloaded the file, create a folder called 'revcanonical' in your plugins folder. 
+Then place the revcanonical.php file in that directory so it looks something like this:
+
+  wp-content/plugins/
+    + wp-content/plugins/revcanonical/
+      + wp-content/plugins/revcanonical/revcanonical.php
