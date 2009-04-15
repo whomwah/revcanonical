@@ -1,80 +1,69 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-
-	<title>whomwah/revcanonical @ GitHub</title>
-	
-	<style type="text/css">
-		body {
-  		margin-top: 1.0em;
-  		background-color: #a558bf;
-		  font-family: "helvetica"; 
-  		color: #000000;
-    }
-    #container {
-      margin: 0 auto;
-      width: 700px;
-    }
-		h1 { font-size: 3.8em; color: #5aa740; margin-bottom: 3px; }
-		h1 .small { font-size: 0.4em; }
-		h1 a { text-decoration: none }
-		h2 { font-size: 1.5em; color: #5aa740; }
-    h3 { text-align: center; color: #5aa740; }
-    a { color: #5aa740; }
-    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
-    .download { float: right; }
-		pre { background: #000; color: #fff; padding: 15px;}
-    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
-    .footer { text-align:center; padding-top:30px; font-style: italic; }
-	</style>
-	
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>RevCanonical - A Wordpress plugin that adds rev=canonical support</title>
+<meta http-equiv="content-language" content="en" />
+<meta http-equiv="author" content="Duncan Robertson" />
+<meta name="copyright" content="Copyright (c)1999-2008 Duncan Robertson. All Rights Reserved." />
+<link rel="stylesheet" href="http://whomwah.com/wp-content/themes/whomwah/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="http://whomwah.com/wp-content/plugins/wp-syntax/wp-syntax.css" type="text/css" media="screen" />
 </head>
-
 <body>
-  <a href="http://github.com/whomwah/revcanonical"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
-  
-  <div id="container">
+<div id="page">
 
-    <div class="download">
-      <a href="http://github.com/whomwah/revcanonical/zipball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
-      <a href="http://github.com/whomwah/revcanonical/tarball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
-    </div>
-      
-    <h1><a href="http://github.com/whomwah/revcanonical">revcanonical</a> 
-      <span class="small">by <a href="http://github.com/whomwah">whomwah</a></small></h1>
+<a href="http://github.com/whomwah"><img style="position: absolute; top: 0; left: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_left_orange_ff7600.png" alt="Fork me on GitHub" /></a>
 
-    <div class="description">
-      A Wordpress plugin that adds rev=canonical support
-    </div>
+<div id="accessible-top"><a href="http://whomwah.com" title="to Whomwah.com">Visit the author at whomwah.com</a></div>
 
-    <h2>Authors</h2>
-<p>Duncan Robertson (duncan@whomwah.com)<br/><br/>      </p>
-<h2>Contact</h2>
-<p>Duncan Robertson (duncan@whomwah.com)<br/>      </p>
-
-
-    <h2>Download</h2>
-    <p>
-      You can download this project in either
-      <a href="http://github.com/whomwah/revcanonical/zipball/master">zip</a> or
-      <a href="http://github.com/whomwah/revcanonical/tarball/master">tar</a> formats.
-    </p>
-    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
-      by running:
-      <pre>$ git clone git://github.com/whomwah/revcanonical</pre>
-    </p>
-      
-    <div class="footer">
-      get the source code on GitHub : <a href="http://github.com/whomwah/revcanonical">whomwah/revcanonical</a>
-    </div>
-    
+<div id="header">
+  <div id="headerimg">
+    <h1><a href="http://whomwah.github.com/">RevCanonical</a></h1>
+    <p class="description">A Wordpress plugin that adds rev=canonical support</p>
   </div>
+</div>
 
-  
+<hr />
+
+<div id="content" class="widecolumn">
+  <div class="post">
+    <div class="entry">
+      <p><a href="http://whomwah.github.com/revcanonical">RevCanonical</a> RevCanonical creates and adds support for shortened urls as per this <a href="http://laughingmeme.org/2009/04/03/url-shortening-hinting/">rev=canonical blog post</a>. It not only creates short urls for all your posts and pages, but once you install the plugin, you will get a tag added to the source of your page that will contain that shortened version of the url for the page it sits in.</p>
+<div class="wp_syntax"><div class="code"><pre class="ruby ruby" style="font-family:monospace;">&lt;link rev="canonical" type="text/html" href="http://domain.me/p12p" /&gt;</pre></div></div>
+<p>That’s it! You can now, not only use this url to pass around and in sites like <a href="http://twitter.com">Twitter</a> without having to go via a url shortening service, but services or people that understand the rev=canonical link tag, will be able to use this shortened version over the longer canonical version. It also means that it’s persistence is down to you, and not to a 3rd party.</p>
+<p>Download the latest build from below:</p>
+      <ul>
+        <li><a href="http://wordpress.org/extend/plugins/revcanonical/">The Plugin page at wordpress.org</a></li>
+        <li><a href="http://downloads.wordpress.org/plugin/revcanonical.1.1.1.zip">Download TweetMe 1.1.1 (zip)</a></li>
+      </ul>
+
+    <p>View or fork the source via GitHub: <a href="http://github.com/whomwah/revcanonical/tree/master">http://github.com/whomwah/revcanonical/tree/master</a>. The Public Clone URL is:</p>
+<div class="wp_syntax"><div class="code"><pre class="ruby ruby" style="font-family:monospace;">git clone git://github.com/whomwah/revcanonical.git</pre></div></div>
+
+<p class="note">Launched: <em>Tues, April 14th, 2009</em></p>
+<p class="note">Author: <em>Duncan Robertson</em> [<a href="http://whomwah.com">http://whomwah.com</a>]</p>
+
+</div>
+</div>
+</div>
+
+<hr />
+
+<div id="footer">
+  <p>&copy;1999-2008 Duncan Robertson. All rights reserved.</p>
+</div>
+
+<div id="accessible-bottom"><a href="#page" title="Back to the top of the page">back to the top</a></div>
+
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-111545-5");
+pageTracker._trackPageview();
+} catch(err) {}</script>
 </body>
 </html>
