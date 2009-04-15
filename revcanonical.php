@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: RevCanonical
-Plugin URI: http://whomwah.com/revcanonical/ 
+Plugin URI: http://whomwah.github.com/revcanonical/ 
 Description: Creates and adds support for shortened urls and the rev=canonical link tag
 Version: 1.1.1
 Author: Duncan Robertson 
