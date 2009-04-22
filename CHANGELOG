@@ -1,3 +1,11 @@
+*1.2.0* (21st April, 2009)
+
+* updated all the text to hopefully make more sense
+* add extra configuration so you can customise you link
+  attributes to which side of the fence you sit
+* add wordpress tag revcanonical_link($id)  
+* add wordpress tag get_revcanonical_link($id)  
+
 *1.1.1* (14th April, 2009)
 
 * tidy up on the train. Lauched plugin a bit too fast

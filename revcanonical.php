@@ -2,21 +2,46 @@
 /*
 Plugin Name: RevCanonical
 Plugin URI: http://whomwah.github.com/revcanonical/ 
-Description: Creates and adds support for shortened urls and the rev=canonical link tag
-Version: 1.1.1
+Description: Creates and adds support for shortened urls plus the shortlink auto-discovery tag
+Version: 1.2
 Author: Duncan Robertson 
 Author URI: http://whomwah.com
 */
 
 
-function revcanonical()  {
+function revcanonical()
+{
   global $post;
   if (is_single() || is_page()) {
-    echo "\n".'<link rev="canonical" type="text/html" href="'.revcanonical_shorten($post->ID).'" />'; 
+    echo "\n".revcanonical_html($post->ID); 
   }
 }
 
-function revcanonical_do_redirect() {
+function revcanonical_link($no=null)
+{
+  $url = revcanonical_shorten($no);
+  return ((!empty($url))?"\n\n":'').$url;
+}
+
+function get_revcanonical_link($no=null)
+{
+  echo revcanonical_shorten($no);
+}
+
+function revcanonical_attr()
+{
+  $default = 'rev="canonical" type="text/html"'; 
+  $opt = get_option('revcanonical-attributes');
+  return $opt == '' ? "$default " : "$opt ";
+}
+
+function revcanonical_html($id) 
+{
+  return '<link '.revcanonical_attr().'href="'.revcanonical_shorten($id).'" />'; 
+}
+
+function revcanonical_do_redirect()
+{
   $rq = spliti('/', trim($_SERVER['REQUEST_URI'],'/'));
   $id = substr($rq[0], 1, strlen($rq[0]));
   if (count($rq) == 1 && $id != '' && $pl = revcanonical_unshorten($id)) {
@@ -24,22 +49,28 @@ function revcanonical_do_redirect() {
   }
 }
 
-function revcanonical_shorten($no){
+function revcanonical_shorten($no)
+{
   $url = get_option('revcanonical-url');
   if ($url == '')
     $url = get_bloginfo('url');
+  if (!$no)
+    return "$url/xx";
   $id = base_convert($no, 10, 36);
   return $url.'/p'.base_convert($no, 10, 36);
 }
 
-function revcanonical_unshorten($no){
+function revcanonical_unshorten($no)
+{
   $id = base_convert($no, 36, 10);
   return get_permalink($id); 
 }
 
-function revcanonical_management() {
+function revcanonical_management()
+{
 	if ($_POST['submit-type'] == 'options') {
 		update_option('revcanonical-url', $_POST['revcanonical-url']);
+		update_option('revcanonical-attributes', stripslashes($_POST['revcanonical-attributes']));
 		echo("<div style='width:75%;padding:10px; margin-top:20px; color:#fff;background-color:#2d2;'>Thanks, Configuration Successfully updated!</div>");
 	}
 
@@ -47,22 +78,33 @@ function revcanonical_management() {
     $url = get_bloginfo('url');
 		update_option('revcanonical-url', $url);
   }
+
+  if (get_option('revcanonical-attributes') == '') {
+    $attr = revcanonical_attr();
+		update_option('revcanonical-attributes', $attr);
+  }
 ?>
 
 <div class="wrap">
   <h2>RevCanonical Settings</h2>
-  <p>RevCanonical adds another link tag to the source code of your posts and pages. It also generates a working short url for that page. You can pass this shortened link around or use it on character restricted sites like <a href="http://twitter.com">Twitter</a>. As well as that, sites that understand this tag, will use it too if they require a shorter version of your pages url. This link could now still exist in 20 years, as it's in your hands now, and not a 3rd parties that could shut down. It also gives the user of the link a bit of confidence that the destination is safe.</p>
-  <p>Here's an example of what gets added to your page. The link in the href part is the short version you can use:</p>
-  <p><code>&#060link rev="canonical" type="text/html" href="<?php echo(get_option('revcanonical-url')) ?>/p12p" /&#062;</code></p>
-  <p>Sites like <a href="http://flickr.com">Flickr</a>, <a href="http://dopplr.com/">Dopplr</a> and <a href="http://php.net/">php.net</a> are also starting to add this link tag to their pages. There is even <a href="http://simonwillison.net/2009/Apr/11/revcanonical/">a bookmarklet</a> that will returned the shortened url for a page if it's available. For more information visit <a href="http://revcanonical.appspot.com/">http://revcanonical.appspot.com/</a></p>
-  <p>
-  <h3>Shorten URL domain name Configuration</h3>
+  <p><a href="http://whomwah.github.com/revcanonical/">RevCanonical</a> generates a short url for your pages, as well as adding link shortening discovery. You can use this url on character restricted sites like <a href="http://twitter.com">Twitter</a>, in IM, or anytime you need a short link to your webpages. The discovery part means that other sites can also use the short url should they need it. Oh and this short url is yours, from your website. It does not use any external service.</p>
+  <p>Here's what gets added to your pages. The link in the <code>href</code> is the short version you can use. You can customise this tag using the settings below:</p>
+  <p><code><?php echo htmlspecialchars(revcanonical_html('')) ?></code></p>
+  <p>Sites like <a href="http://flickr.com">Flickr</a>, <a href="http://dopplr.com/">Dopplr</a> and <a href="http://php.net/">php.net</a> now add this link tag to their pages. There is even <a href="http://simonwillison.net/2009/Apr/11/revcanonical/">a bookmarklet</a> that will returned the shortened url for a page if it's available. For more information visit <a href="http://revcanonical.appspot.com/">http://revcanonical.appspot.com/</a></p>
+  <p>And finally... there are a couple of tags you can use in your own templates, that will return the short link for that page. You need to pass them the post ID. </p>
+  <p><code><?php echo(htmlspecialchars("<?php get_revcanonical_shorturl(\$post->ID) ?>  ===> Echo the shorturl to the screen")) ?></code></p>
+  <p><code><?php echo(htmlspecialchars("<?php \$url = revcanonical_shorturl(\$post->ID) ?>  ===> Assign the shorturl to a variable")) ?></code></p>
+  <h2>Advanced Configuration</h2>
+  <p>I suggest only changing these if you know what you're doing. If you think you made a mistake, then changing a setting to empty and re-saving will revert back to the defaults.</p>
+  <h3>Custom Shortened Domain Name</h3>
 	<form method="post">
-	<p><label for="tweetme-text">By default the shortened link will be for example <code><? echo get_bloginfo('url'); ?>/p12p</code>, but you can change this below.</label></p>
-	<input type="text" name="revcanonical-url" id="revcanonical-url" class="regular-text" size="50" maxlength="122" value="<?php echo(get_option('revcanonical-url')) ?>" /><code>/p12p</code>
-  <p><em>NOTE: If you change the domain, it is up to you to configure your new domain name to point to the default one. <a href="http://gist.github.com/94686">Here's an example</a></em></p> 
+	<p><label for="tweetme-text">By default the shortened link will be <code><? bloginfo('url'); ?>/xx</code>, but you can change this below. It's up to you to configure your new domain name if you do.</label></p>
+	<input type="text" name="revcanonical-url" id="revcanonical-url" class="regular-text" size="50" maxlength="122" value="<?php echo(get_option('revcanonical-url')) ?>" /> 
 
 	<input type="hidden" name="submit-type" value="options">
+  <h3>Custom Link Tag</h3>
+	<p><label for="tweetme-text">There are many ongoing conversations on the web about how to describe shortened links in HTML. There appears to be no absolute right way, so by default if will be rev=canonical. Should you want to use another way, you can do so below.</label></p>
+	<input type="text" name="revcanonical-attributes" id="revcanonical-attributes" class="regular-text" size="50" value="<?php echo(htmlspecialchars(get_option('revcanonical-attributes'))) ?>" />
   <p class="submit"><input type="submit" name="Submit" class="button-primary" value="Save Changes" /></p>
 	</form>
 
@@ -71,7 +113,8 @@ function revcanonical_management() {
 <?php
 }
 
-function add_revcanonical_admin_page() {
+function add_revcanonical_admin_page() 
+{
 	if ( function_exists('add_submenu_page') )
 		add_submenu_page('plugins.php', 
       __('RevCanonical Configuration'), __('RevCanonical Config'), 
