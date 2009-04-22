@@ -28,13 +28,16 @@
 <div id="content" class="widecolumn">
   <div class="post">
     <div class="entry">
-      <p><a href="http://whomwah.github.com/revcanonical">RevCanonical</a> RevCanonical creates and adds support for shortened urls as per this <a href="http://laughingmeme.org/2009/04/03/url-shortening-hinting/">rev=canonical blog post</a>. It not only creates short urls for all your posts and pages, but once you install the plugin, you will get a tag added to the source of your page that will contain that shortened version of the url for the page it sits in.</p>
-<div class="wp_syntax"><div class="code"><pre class="ruby ruby" style="font-family:monospace;">&lt;link rev="canonical" type="text/html" href="http://domain.me/p12p" /&gt;</pre></div></div>
-<p>That’s it! You can now, not only use this url to pass around and in sites like <a href="http://twitter.com">Twitter</a> without having to go via a url shortening service, but services or people that understand the rev=canonical link tag, will be able to use this shortened version over the longer canonical version. It also means that it’s persistence is down to you, and not to a 3rd party.</p>
+      <p><a href="http://whomwah.github.com/revcanonical">RevCanonical</a> generates a short url for your pages, as well as adding <a href="http://laughingmeme.org/2009/04/03/url-shortening-hinting/">link shortening discovery</a>. You can use this url on character restricted sites like <a href="http://twitter.com/">Twitter</a>, in IM, or anytime you need a short link to your webpages. The discovery part means that other sites and <a href="http://revcanonical.appspot.com/">services</a> can also use the short url should they need it. Oh and this short url is yours, from your website. It does not use any external service.</p>
+      <p>Here's what gets added to your pages. The link in the href is the short version you can use:</p>
+<div class="wp_syntax"><div class="code"><pre class="ruby ruby" style="font-family:monospace;">&lt;link rev="canonical" type="text/html" href="http://my-domain.me/p12p" /&gt;</pre></div></div>
+      <p>This tag can though be customised to suit your own preferences (at your own risk), for instance this:</p>
+<div class="wp_syntax"><div class="code"><pre class="ruby ruby" style="font-family:monospace;">&lt;link rel="shortlink" href="http://my-mini.me/p12p" /&gt;</pre></div></div>
+<p>That’s it! Oh and there's <a href="http://simonwillison.net/2009/Apr/11/revcanonical/">a great bookmarklet</a> that makes hunting for existing short urls on a page really simple.</p>
 <p>Download the latest build from below:</p>
       <ul>
         <li><a href="http://wordpress.org/extend/plugins/revcanonical/">The Plugin page at wordpress.org</a></li>
-        <li><a href="http://downloads.wordpress.org/plugin/revcanonical.1.1.1.zip">Download RevCanonical 1.1.1 (zip)</a></li>
+        <li><a href="http://downloads.wordpress.org/plugin/revcanonical.1.2.zip">Download RevCanonical 1.2 (zip)</a></li>
       </ul>
 
     <p>View or fork the source via GitHub: <a href="http://github.com/whomwah/revcanonical/tree/master">http://github.com/whomwah/revcanonical/tree/master</a>. The Public Clone URL is:</p>
