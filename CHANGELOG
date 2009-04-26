@@ -1,3 +1,8 @@
+*1.2.1* (26th April, 2009)
+
+* bug for domains like:
+  www.foo.com/blog/...
+
 *1.2.0* (21st April, 2009)
 
 * updated all the text to hopefully make more sense
