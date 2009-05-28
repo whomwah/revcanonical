@@ -47,6 +47,7 @@ function revcanonical_do_redirect()
   $id = substr($rq, 1, strlen($rq));
   if ($id != '' && $pl = revcanonical_unshorten($id)) {
 	  header('Location: '.$pl, true, 301);
+	  exit;
   }
 }
 
