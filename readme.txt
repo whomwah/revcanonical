@@ -3,8 +3,8 @@ Contributors: whomwah
 Donate Link: http://pledgie.org/campaigns/3803 
 Tags: revcanonical, shortening, links, simple, post, url
 Requires at least: 2.6
-Tested up to: 2.7.2
-Stable tag: 1.2.1 
+Tested up to: 2.7.1
+Stable tag: 1.2.2 
 
 A Wordpress plugin that creates and adds support for shortened urls plus the shortlink auto-discovery tag
 
@@ -46,7 +46,15 @@ Not sure is the simple answer, I currently run 2.7.2. If it works with ealier ve
 
 = But my domain name is really long =
 
-You can add you own shortened domain name if you own one via the settings page. It's up to you though, to point your shortened domain back to the longer one. I do this via a ProxyPass line in that domains conf file.
+You can add you own shortened domain name if you own one via the settings page. This is for advanced users, as it's up to you to point your shortened domain back to the longer one. I do this via a ProxyPass line in that domains conf file. Here's my vhost.conf file. You can find out more about ProxyPass via the [Apache website](http://httpd.apache.org/docs/2.2/mod/mod_proxy.html#proxypass).
+
+`
+<VirtualHost *:80>
+  ServerName  littl.me 
+  ServerAlias www.littl.me
+  ProxyPass / http://whomwah.com/
+</VirtualHost>
+`
 
 = Can I contribute to revcanonical? =
 
