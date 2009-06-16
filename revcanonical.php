@@ -40,15 +40,21 @@ function revcanonical_html($id)
   return '<link '.revcanonical_attr().'href="'.revcanonical_shorten($id).'" />'; 
 }
 
-function revcanonical_do_redirect()
+function revcanonical_do_redirect($qv)
 {
+  if (!array_key_exists('pagename', $qv)) {
+    return $qv;
+  }
+
   $rq = spliti('/', trim($_SERVER['REQUEST_URI'],'/'));
   $rq = $rq[count($rq)-1];
   $id = substr($rq, 1, strlen($rq));
   if ($id != '' && $pl = revcanonical_unshorten($id)) {
-	  header('Location: '.$pl, true, 301);
+    wp_redirect($pl, 301);
 	  exit;
   }
+
+  return $qv;
 }
 
 function revcanonical_shorten($no)
@@ -123,8 +129,8 @@ function add_revcanonical_admin_page()
       'manage_options', 'revcanonical-config', 'revcanonical_management');
 }
 
-add_action('template_redirect','revcanonical_do_redirect');
 add_action('wp_head', 'revcanonical');
 add_action('admin_menu', 'add_revcanonical_admin_page');
+add_filter('request','revcanonical_do_redirect');
 
 ?>
