@@ -36,9 +36,9 @@ There are many ongoing conversations on the web about how to describe shortened 
 
 And finally... there are a couple of tags you can use in your own templates, that will return the short link for that page. You need to pass them the post ID.
 
-`<?php get_revcanonical_shorturl($post->ID) ?> ===> Echo the shorturl to the screen`
+`<?php get_revcanonical_link($post->ID) ?> ===> Echo the shorturl to the screen`
 
-`<?php $url = revcanonical_shorturl($post->ID) ?> ===> Assign the shorturl to a variable`
+`<?php $url = revcanonical_link($post->ID) ?> ===> Assign the shorturl to a variable`
 
 == Frequently Asked Questions ==
 
