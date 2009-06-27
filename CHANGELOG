@@ -1,3 +1,8 @@
+*1.2.4* (27th June, 2009)
+
+* added for redirect fixes although it may not fix everyone's problems
+* merge docs typo fix from Trey Piepmeier <trey@treypiepmeier.com> 
+
 *1.2.3* (16th June, 2009)
 
 * another bug fix on the url redirect 

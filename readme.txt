@@ -4,7 +4,7 @@ Donate Link: http://pledgie.org/campaigns/3803
 Tags: revcanonical, shortening, links, simple, post, url
 Requires at least: 2.6
 Tested up to: 2.8
-Stable tag: 1.2.3 
+Stable tag: 1.2.4 
 
 A Wordpress plugin that creates and adds support for shortened urls plus the shortlink auto-discovery tag
 
@@ -42,9 +42,13 @@ And finally... there are a couple of tags you can use in your own templates, tha
 
 == Frequently Asked Questions ==
 
+= I just get a '404 page not found' when going to the shortlink? =
+
+A few people have mentioned this, but due to the fact they were unable to send and debug information, I have not been able to fix it. It is likely to be a configuration setting on shared hosting or hosting on Windows. If you are having this problem and would be prepared to help debug, please drop me a line at duncan [at] whomwah [dot] com
+
 = Does it work with earlier versions of Wordpress? =
 
-Not sure is the simple answer, I currently run 2.7.2. If it works with ealier versions, please let me know via [Whomwah.com](http://whomwah.com).
+Not sure is the simple answer, I currently run 2.8. If it works with ealier versions, please let me know via [Whomwah.com](http://whomwah.com).
 
 = But my domain name is really long =
 
