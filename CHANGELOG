@@ -1,3 +1,8 @@
+*1.2.5* (1st August, 2009)
+
+* NOTE If the plugin works for you, then DON"T BOTHER UPGRADING !!!!
+* reverted redirect code. Still not fixed but judging by comments should help more people than it breaks 
+
 *1.2.4* (27th June, 2009)
 
 * added for redirect fixes although it may not fix everyone's problems
